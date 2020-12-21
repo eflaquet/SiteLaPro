@@ -1,5 +1,8 @@
 <?php 
     include "INCLUDE/function.php";
+    include "INCLUDE/user.php";
+    include "INCLUDE/database.php";
+    $login = new user($link);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +20,24 @@
   <div class="login-page">
     <div class="form">
       <form class="login-form" method="post">
-        <input type="text" placeholder="username" />
-        <input type="password" placeholder="password" />
-        <button>login</button>
+        <input type="email" name="emails" placeholder="email" />
+        <input type="password" name="pass" placeholder="password" />
+        <button name="login">login</button>
       </form>
     </div>
   </div>
+
+  <?php
+    if(isset($_POST['login'])){
+        //traitement du password login
+        if(!empty($_POST['emails'])){
+          $login->Connexion($_POST['emails']);
+          if(!empty($_POST['pass'])){
+            $login->compare($_POST['emails'],$_POST['pass']);
+          }
+        }
+    }
+  ?>
 
 </body>
 
