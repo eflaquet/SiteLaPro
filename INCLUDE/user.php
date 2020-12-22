@@ -31,11 +31,15 @@ class user
         {
             if (password_verify($password, $this->_password)) 
             {
-                echo "ok";
+                $this->_password = $password;
                 return true;
             }
         }
     return false;
+    }
+
+    public function getEmail(){
+        return $this->_email;
     }
 
 }
