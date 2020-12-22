@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 22 déc. 2020 à 22:11
+-- Généré le :  mar. 22 déc. 2020 à 23:32
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -33,14 +33,15 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `id_categorie` int(11) NOT NULL AUTO_INCREMENT,
   `categorie` varchar(20) NOT NULL,
   PRIMARY KEY (`id_categorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id_categorie`, `categorie`) VALUES
-(1, 'logiciel');
+(1, 'logiciel'),
+(2, 'installation');
 
 -- --------------------------------------------------------
 
@@ -53,14 +54,15 @@ CREATE TABLE IF NOT EXISTS `cycle` (
   `id_cycle` int(11) NOT NULL AUTO_INCREMENT,
   `cycle` varchar(20) NOT NULL,
   PRIMARY KEY (`id_cycle`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `cycle`
 --
 
 INSERT INTO `cycle` (`id_cycle`, `cycle`) VALUES
-(1, 'Ecole');
+(1, 'Ecole'),
+(2, 'College');
 
 -- --------------------------------------------------------
 
@@ -87,14 +89,15 @@ CREATE TABLE IF NOT EXISTS `priorite` (
   `id_priorite` int(11) NOT NULL AUTO_INCREMENT,
   `priorite` varchar(20) NOT NULL,
   PRIMARY KEY (`id_priorite`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `priorite`
 --
 
 INSERT INTO `priorite` (`id_priorite`, `priorite`) VALUES
-(1, 'Faible');
+(1, 'Faible'),
+(2, 'Moyen');
 
 -- --------------------------------------------------------
 
@@ -119,14 +122,15 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   KEY `id_user` (`id_user`),
   KEY `id_user_2` (`id_user`),
   KEY `id_priorite` (`id_priorite`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `ticket`
 --
 
 INSERT INTO `ticket` (`id_ticket`, `id_type`, `id_cycle`, `id_categorie`, `id_user`, `id_priorite`, `commentaire`, `date_echeance`) VALUES
-(1, 1, 1, 1, 1, 1, 'Problemment au niveau du logiciel words', '2020-12-22');
+(1, 1, 1, 1, 1, 1, 'Problemment au niveau du logiciel words', '2020-12-22'),
+(3, 4, 1, 2, 1, 2, 'Eraur d\'insatlibntion', '2020-12-23');
 
 -- --------------------------------------------------------
 
@@ -139,14 +143,15 @@ CREATE TABLE IF NOT EXISTS `type` (
   `id_type` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(30) NOT NULL,
   PRIMARY KEY (`id_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `type`
 --
 
 INSERT INTO `type` (`id_type`, `type`) VALUES
-(1, 'Personnel administratif');
+(1, 'Personnel administratif'),
+(4, 'Professeur');
 
 -- --------------------------------------------------------
 
