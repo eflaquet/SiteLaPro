@@ -21,9 +21,11 @@
     <div class="form">
       <form class="login-form" method="post">
         <input type="email" name="emails" placeholder="email" />
-        <input type="password" name="pass" placeholder="password" />
+        <input type="password" name="pass" placeholder="password" /> 
+        
         <button name="login">login</button>
       </form>
+     
     </div>
   </div>
 
