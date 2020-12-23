@@ -15,11 +15,23 @@ function menu(){
           <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
+        <?php if(!isset($_SESSION["user"])){ ?>
           <a class="nav-link" href="login.php">Connexion</a>
+          <?php }else{ ?>
+            <a class="nav-link" href="ticket.php">ticket</a>
+            <?php } ?>
         </li>
+        <?php if(isset($_SESSION["user"])){ ?>
+        <li class="nav-item">
+       
+          <a class="nav-link" href="deconnexion.php">Deconnexion</a>
+          
+        </li>
+        <?php } ?>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">A propos de nous</a>
-        </li>
+        </li> 
+        
       </ul>
     </div>
   </div>

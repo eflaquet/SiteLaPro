@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "INCLUDE/function.php"
+include "INCLUDE/function.php";
+session_start();
 ?>
 <html lang="en">
 <head>

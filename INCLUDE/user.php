@@ -4,8 +4,12 @@ class user
 {
 
     private $_db;
+    private $_username;
+    private $_name;
     private $_email;
     private $_password;
+    private $_id_type;
+   
 
     public function __construct($db)
     {
@@ -20,8 +24,11 @@ class user
         if(empty($row)){
             return false;
         }else{
+            $this->_username = $row["username"];
+            $this->_name = $row["name"];
             $this->_email = $row["email"];
             $this->_password = $row["password"];
+            $this->_id_type = $row["id_type"];
         }
     }
     public function compare($email, $password)
@@ -37,11 +44,18 @@ class user
         }
     return false;
     }
-
+    public function getUsername(){
+        return $this->_username;
+    }
+    public function getName(){
+        return $this->_name;
+    }
     public function getEmail(){
         return $this->_email;
     }
-
+    public function getIdticket(){
+        return $this->_id_type;
+    }
 }
 
 ?>

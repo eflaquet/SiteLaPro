@@ -1,6 +1,10 @@
 <?php 
     include "INCLUDE/function.php";
     include "INCLUDE/database.php";
+    session_start();
+    if(!$_SESSION["user"]){
+      header("location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

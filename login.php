@@ -3,6 +3,10 @@
     include "INCLUDE/user.php";
     include "INCLUDE/database.php";
     $login = new user($link);
+    session_start();
+    if(isset($_SESSION["user"])){
+      header("location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +39,11 @@
         if(!empty($_POST['emails'])){
           $login->Connexion($_POST['emails']);
           if(!empty($_POST['pass'])){
-            $login->compare($_POST['emails'],$_POST['pass']);
+            if($login->compare($_POST['emails'],$_POST['pass'])){
+                $_SESSION["user"] = true;
+                $_SESSION["id_type"] = $login->getIdticket();
+                header("location: index.php");
+            }
           }
         }
     }
