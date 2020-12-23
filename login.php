@@ -21,7 +21,7 @@
 
 <body>
   <?php menu(); ?>
-  <div class="login-page">
+  <div class="page">
     <div class="form">
       <form class="login-form" method="post">
         <input type="email" name="emails" placeholder="email" />
@@ -35,7 +35,6 @@
 
   <?php
     if(isset($_POST['login'])){
-        //traitement du password login
         if(!empty($_POST['emails'])){
           $login->Connexion($_POST['emails']);
           if(!empty($_POST['pass'])){
