@@ -42,12 +42,17 @@
                 $_SESSION["user"] = true;
                 $_SESSION["id_type"] = $login->getIdticket();
                 header("location: index.php");
+                
             }
           }
         }
     }
+    
   ?>
 
 </body>
 
 </html>
+<?php
+mysqli_close($link);
+  ?>

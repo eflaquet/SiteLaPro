@@ -17,6 +17,9 @@
             $this->_db = $db;
         }
 
+        public function addMaintenance($id_typt, $id_cycle, $id_categorie, $id_user, $id_priorite, $commentaire, $date_echeance){
+
+        }
     }
 
 ?>

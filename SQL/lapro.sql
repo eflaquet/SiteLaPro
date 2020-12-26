@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 22 déc. 2020 à 23:32
+-- Généré le :  ven. 25 déc. 2020 à 18:51
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -73,9 +73,19 @@ INSERT INTO `cycle` (`id_cycle`, `cycle`) VALUES
 DROP TABLE IF EXISTS `maintenance`;
 CREATE TABLE IF NOT EXISTS `maintenance` (
   `id_maintenance` int(11) NOT NULL AUTO_INCREMENT,
-  `id_ticket` int(11) NOT NULL,
+  `id_type` int(11) NOT NULL,
+  `id_cycle` int(11) NOT NULL,
+  `id_categorie` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_priorite` int(11) NOT NULL,
+  `commentaire` text NOT NULL,
+  `date_echeance` date NOT NULL,
   PRIMARY KEY (`id_maintenance`),
-  KEY `id_ticket` (`id_ticket`)
+  KEY `id_ticket` (`id_type`),
+  KEY `id_cycle` (`id_cycle`),
+  KEY `id_categorie` (`id_categorie`),
+  KEY `id_user` (`id_user`),
+  KEY `id_priorite` (`id_priorite`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -122,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   KEY `id_user` (`id_user`),
   KEY `id_user_2` (`id_user`),
   KEY `id_priorite` (`id_priorite`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `ticket`
@@ -130,7 +140,8 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 
 INSERT INTO `ticket` (`id_ticket`, `id_type`, `id_cycle`, `id_categorie`, `id_user`, `id_priorite`, `commentaire`, `date_echeance`) VALUES
 (1, 1, 1, 1, 1, 1, 'Problemment au niveau du logiciel words', '2020-12-22'),
-(3, 4, 1, 2, 1, 2, 'Eraur d\'insatlibntion', '2020-12-23');
+(3, 4, 1, 2, 1, 2, 'Eraur d\'insatlibntion', '2020-12-23'),
+(4, 4, 2, 1, 1, 1, 'gftrsdgtfy', '2020-12-23');
 
 -- --------------------------------------------------------
 
@@ -182,12 +193,6 @@ INSERT INTO `user` (`id_user`, `username`, `name`, `email`, `password`, `id_type
 --
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `maintenance`
---
-ALTER TABLE `maintenance`
-  ADD CONSTRAINT `maintenance_ibfk_1` FOREIGN KEY (`id_ticket`) REFERENCES `ticket` (`id_ticket`);
 
 --
 -- Contraintes pour la table `ticket`
