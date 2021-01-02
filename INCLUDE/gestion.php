@@ -94,4 +94,3 @@
             return $this->_priorite;
         }
     }
-?>
